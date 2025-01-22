@@ -1,15 +1,14 @@
 [
   {
-    "repository"  : "PixelExperience-Devices/kernel_lge_bullhead",
-    "target_path" : "kernel/lge/bullhead",
-    "branch"      : "ten",
+    "repository"  : "Android4Lumia950/android_kernel_msft_talkman",
+    "target_path" : "kernel/msft/talkman",
     "remote"      : "github"
   },
   {
-    "repository"  : "vendor_lge_bullhead",
-    "target_path" : "vendor/lge/bullhead",
-    "branch"      : "ten",
-    "remote"      : "pixel-devices-blobs"
+    "repository"  : "Android4Lumia950/android_vendor_msft_talkman",
+    "target_path" : "vendor/msft/talkman",
+    "branch"      : "lineage-18.1-talkman",
+    "remote"      : "github"
   },
   {
     "repository"  : "lakgarg/packages_apps_GoogleCamera",

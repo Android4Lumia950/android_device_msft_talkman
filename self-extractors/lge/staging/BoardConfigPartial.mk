@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_PREBUILT_VENDORIMAGE := vendor/lge/bullhead/proprietary/vendor.img
+BOARD_PREBUILT_VENDORIMAGE := vendor/msft/talkman/proprietary/vendor.img
