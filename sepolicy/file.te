@@ -8,6 +8,13 @@ type sysfs_surfaceflinger, fs_type, sysfs_type;
 
 type sysfs_rndis, fs_type, sysfs_type;
 
+# Sensor file types
+type sensors_socket, file_type;
+type sensors_data_file, file_type, data_file_type;
+type sensors_persist_file, file_type;
+type sysfs_sensors, sysfs_type, fs_type;
+
+
 # file type for irqbalance socket
 type msm_irqbalance_socket, file_type;
 
@@ -39,6 +46,12 @@ type nfc_vendor_data_file, file_type, data_file_type;
 type sysfs_smdcntl_open_timeout, fs_type, sysfs_type;
 
 type sysfs_camera, sysfs_type, fs_type;
+
+#data sysfs  files
+type sysfs_data, fs_type, sysfs_type;
+
+# used for /dsp files
+type adsprpcd_file, file_type, mlstrustedobject;
 
 # type for persist partition
 type persist_file, file_type;

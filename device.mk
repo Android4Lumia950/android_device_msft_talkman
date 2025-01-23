@@ -246,8 +246,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.devwait.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devwait.sh \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh \
     $(LOCAL_PATH)/rootdir/etc/fstab.talkman:$(TARGET_COPY_OUT_ROOT)/fstab.talkman \
-    $(LOCAL_PATH)/rootdir/etc/fstab.talkman:$(TARGET_COPY_OUT_RAMDISK)/fstab.talkman
-#    $(LOCAL_PATH)/rootdir/etc/init.msm8992.sensor.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.msm8992.sensor.sh
+    $(LOCAL_PATH)/rootdir/etc/fstab.talkman:$(TARGET_COPY_OUT_RAMDISK)/fstab.talkman \
+    $(LOCAL_PATH)/rootdir/etc/init.msm8992.sensor.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.msm8992.sensor.sh
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -348,37 +348,22 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.radio.snapshot_enabled=1 \
     persist.radio.snapshot_timer=10
 
-# Sensor & activity_recognition HAL
-#PRODUCT_PACKAGES += \
-#    sensors.talkman \
-#    activity_recognition.talkman \
-#    android.hardware.contexthub@1.0-service \
-#    libsensorndkbridge
 
 # Sensors
-#PRODUCT_PACKAGES += \
-#    android.hardware.sensors@1.0-impl \
-#    android.hardware.sensors@1.0-service
-#    
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.qc.sdk.sensors.gestures=true \
-#    ro.qcom.ad=1 \
-#    ro.qcom.ad.sensortype=3 \
-#    ro.qcom.ad.calib.data=/system/media/display/calib.cfg
-#
-#
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/sensors/sensor_def_common.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_common.conf \
-#    $(LOCAL_PATH)/sensors/sensor_def_variable.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_variable.conf \
-#    $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
-#    $(LOCAL_PATH)/sensors/calib.cfg:system/media/display/calib.cfg
-#
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    persist.debug.sensors.hal=e \
-#    debug.qualcomm.sns.daemon=e \
-#    debug.qualcomm.sns.hal=e \
-#    debug.qualcomm.sns.libsensor1=e
-#
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
+
+# DEBUG SENSORS PROPS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.sensors.hal=all \
+    debug.qualcomm.sns.daemon=all \
+    debug.qualcomm.sns.hal=all \
+    debug.qualcomm.sns.libsensor1=all
+
     
 # Shims
 PRODUCT_PACKAGES += \
@@ -446,6 +431,11 @@ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-n
 #PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
 endif
+
+## Include GApps
+#GAPPS_VARIANT := nano
+#$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+
 
 $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8992.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)

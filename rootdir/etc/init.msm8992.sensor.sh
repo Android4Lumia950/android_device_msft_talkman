@@ -32,24 +32,18 @@
 start_sensors()
 {
     if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
-        chmod -h 775 /persist/sensors
-        chmod -h 664 /persist/sensors/sensors_settings
+        mkdir -p /persist/sensors
+        chmod 775 /persist/sensors
+        chmod 664 /persist/sensors/sensors_settings
         chown -h system.root /persist/sensors/sensors_settings
+        chmod 664 /persist/sensors/gyro_sensitity_cal
+        chown -h system.root /persist/sensors/gyro_sensitity_cal
 
         mkdir -p /data/misc/sensors
-        chmod -h 775 /data/misc/sensors
+        chmod 775 /data/misc/sensors
 
         start sensors
     fi
 }
 
 start_sensors
-
-# Calibrate sensors on boot
-
-if [[ ! -f /sns/cal/cal_data.txt && -f /system/etc/sensors/sensor_def_variable.conf ]]; then
-    rm /sns/cal/sns.reg
-    touch /sns/cal/cal_data.txt
-fi
-
-exit 0

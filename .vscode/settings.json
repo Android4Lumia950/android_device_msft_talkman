@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "qmi_client.h": "c",
+        "user_identity_module_v01.h": "c",
+        "network_access_service_v01.h": "c",
+        "qmi_idl_lib.h": "c",
+        "qmi_idl_lib_internal.h": "c",
+        "common_v01.h": "c",
+        "stdint.h": "c"
+    }
+}

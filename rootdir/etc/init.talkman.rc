@@ -338,9 +338,9 @@ service qti /vendor/bin/qti
     group radio net_raw diag usb net_admin
 
 service sensors /vendor/bin/sensors.qcom
-    class core
+    class late_start
     user root
-    group root
+    group root system
     disabled
 
 service netmgrd /vendor/bin/netmgrd
@@ -486,11 +486,8 @@ on property:vold.decrypt=trigger_restart_framework
     restart camera-provider-2-4
 
 # start sensor daemon as core class [START]
-service lge-sensor-sh /vendor/bin/init.msm8992.sensor.sh
-    class core
+service sensor-sh /vendor/bin/init.msm8992.sensor.sh
+    class late_start
     user root
-    group root wakelock
     oneshot
-    seclabel u:r:sensors:s0
-    writepid /dev/cpuset/system-background/tasks
 # start sensor daemon as core class [END]

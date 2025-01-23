@@ -34,3 +34,10 @@ type ssr_device, dev_type;
 type ttyHS0_device, dev_type;
 
 type subsys_modem_device, dev_type;
+
+#Define mpdecision device
+type device_latency, dev_type;
+
+#Add qdsp_device type
+type qdsp_device, dev_type, mlstrustedobject;
+type dsp_device, dev_type;
