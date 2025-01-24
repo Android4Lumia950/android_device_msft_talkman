@@ -31,6 +31,13 @@
 #
 start_sensors()
 {
+        # LGE_START
+        if [ ! -s /persist/sensors/sensors_settings ]; then
+            # If the settings file is empty, enable sensors HAL
+            # Otherwise leave the file with it's current contents
+            echo 1 > /persist/sensors/sensors_settings
+        fi
+        # LGE_END
     if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
         mkdir -p /persist/sensors
         chmod 775 /persist/sensors
@@ -41,6 +48,14 @@ start_sensors()
 
         mkdir -p /data/misc/sensors
         chmod 775 /data/misc/sensors
+
+        # LGE_START, make /sns/cal folder for save sensor registy
+        # If the sns directory exists, make sns/cal/ directory
+        if [ -d /sns ]; then
+          mkdir -p /sns/cal
+        fi
+        # LGE_END, make /sns/cal folder for save sensor registy
+
 
         start sensors
     fi
