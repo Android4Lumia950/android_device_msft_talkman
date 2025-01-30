@@ -1,5 +1,5 @@
 #
-# System prop for Nexus 5X (Bullhead)
+# System prop for Lumia 950 (talkman)
 #
 
 # Audio

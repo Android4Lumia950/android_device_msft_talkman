@@ -164,11 +164,11 @@ def ParseBootloaderHeader(bootloader):
   return img_dict
 
 
-# bullhead's bootloader.img contains 11 separate images.
+# talkman's bootloader.img contains 11 separate images.
 # Each goes to its own partition:
 #    sbl1, tz, rpm, aboot, sdi, imgdata, pmic, hyp, sec, keymaster, cmnlib
 #
-# bullhead also has 8 backup partitions:
+# talkman also has 8 backup partitions:
 #    sbl1, tz, rpm, aboot, pmic, hyp, keymaster, cmnlib
 #
 release_backup_partitions = "sbl1 tz rpm aboot pmic hyp keymaster cmnlib"

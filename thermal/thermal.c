@@ -45,10 +45,10 @@ const int CPU_SENSORS[] = {8, 8, 9, 10, 13, 14};
 // qcom, therm-reset-temp
 #define CPU_SHUTDOWN_THRESHOLD          115
 //qcom, limit-temp
-#define CPU_THROTTLING_THRESHOLD        80
+#define CPU_THROTTLING_THRESHOLD        60
 
 #define BATTERY_SHUTDOWN_THRESHOLD      60
-// vendor/lge/bullhead/proprietary/thermal-engine/thermal-engine-8992.conf
+// vendor/msft/talkman/proprietary/thermal-engine/thermal-engine-8992.conf
 #define SKIN_THROTTLING_THRESHOLD       37
 
 #define GPU_LABEL                       "GPU"
@@ -275,7 +275,7 @@ thermal_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = THERMAL_HARDWARE_MODULE_API_VERSION_0_1,
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = THERMAL_HARDWARE_MODULE_ID,
-        .name = "Bullhead Thermal HAL",
+        .name = "Talkman Thermal HAL",
         .author = "The Android Open Source Project",
         .methods = &thermal_module_methods,
     },

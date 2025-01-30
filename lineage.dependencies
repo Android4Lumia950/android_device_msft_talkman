@@ -1,13 +1,13 @@
 [
   {
     "repository"  : "PixelExperience-Devices/kernel_lge_bullhead",
-    "target_path" : "kernel/lge/bullhead",
+    "target_path" : "kernel/msft/talkman",
     "branch"      : "ten",
     "remote"      : "github"
   },
   {
     "repository"  : "vendor_lge_bullhead",
-    "target_path" : "vendor/lge/bullhead",
+    "target_path" : "vendor/msft/talkman",
     "branch"      : "ten",
     "remote"      : "pixel-devices-blobs"
   },

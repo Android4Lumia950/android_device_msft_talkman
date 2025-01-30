@@ -18,7 +18,7 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := device/lge/bullhead/configs/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := device/msft/talkman/configs/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Inherit some common PixelExperience stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -27,21 +27,21 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := lineage_bullhead
-PRODUCT_DEVICE := bullhead
-PRODUCT_BRAND := google
-PRODUCT_MODEL := Nexus 5X
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_NAME := lineage_talkman
+PRODUCT_DEVICE := talkman
+PRODUCT_BRAND := microsoft
+PRODUCT_MODEL := Lumia 950
+PRODUCT_MANUFACTURER := 
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lineage.build.vendor_security_patch=2018-11-01
 
-#PRODUCT_COPY_FILES += device/lge/bullhead/fstab.aosp_bullhead:root/fstab.bullhead
+#PRODUCT_COPY_FILES += device/msft/talkman/fstab.aosp_talkman:root/fstab.talkman
 
-$(call inherit-product, device/lge/bullhead/device.mk)
-$(call inherit-product, vendor/lge/bullhead/bullhead-vendor.mk)
+$(call inherit-product, device/msft/talkman/device.mk)
+$(call inherit-product, vendor/msft/talkman/talkman-vendor.mk)
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \

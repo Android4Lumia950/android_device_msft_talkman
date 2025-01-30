@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL bullhead devices, and
-# are also specific to bullhead devices
+# This file includes all definitions that apply to ALL talkman devices, and
+# are also specific to talkman devices
 #
 # Everything in this directory will become public
 
@@ -188,11 +188,11 @@ PRODUCT_PACKAGES += \
 
 # Dumpstate HAL
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.0-service.bullhead
+    android.hardware.dumpstate@1.0-service.talkman
 
 # Fingerprint HIDL implementation
 PRODUCT_PACKAGES += \
-    fingerprint.bullhead \
+    fingerprint.talkman \
     android.hardware.biometrics.fingerprint@2.1-service
 
 # For android_filesystem_config.h
@@ -245,23 +245,23 @@ PRODUCT_PACKAGES += \
 
 # init
 PRODUCT_PACKAGES += \
-    init.bullhead.rc \
-    init.bullhead.usb.rc \
-    fstab.bullhead \
-    ueventd.bullhead.rc \
-    init.recovery.bullhead.rc \
-    init.bullhead.sensorhub.rc \
-    init.bullhead.ramdump.rc \
-    init.bullhead.fp.rc \
-    init.bullhead.diag.rc \
-    init.bullhead.misc.rc \
-    init.bullhead.power.rc
+    init.talkman.rc \
+    init.talkman.usb.rc \
+    fstab.talkman \
+    ueventd.talkman.rc \
+    init.recovery.talkman.rc \
+    init.talkman.sensorhub.rc \
+    init.talkman.ramdump.rc \
+    init.talkman.fp.rc \
+    init.talkman.diag.rc \
+    init.talkman.misc.rc \
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.devwait.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devwait.sh \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh \
-    $(LOCAL_PATH)/rootdir/etc/fstab.bullhead:$(TARGET_COPY_OUT_ROOT)/fstab.bullhead \
-    $(LOCAL_PATH)/rootdir/etc/fstab.bullhead:$(TARGET_COPY_OUT_RAMDISK)/fstab.bullhead
+    $(LOCAL_PATH)/rootdir/etc/fstab.talkman:$(TARGET_COPY_OUT_ROOT)/fstab.talkman \
+    $(LOCAL_PATH)/rootdir/etc/fstab.talkman:$(TARGET_COPY_OUT_RAMDISK)/fstab.talkman
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -281,14 +281,14 @@ PRODUCT_COPY_FILES += \
 
 # Light HAL
 PRODUCT_PACKAGES += \
-    lights.bullhead \
+    lights.talkman \
     lights.vts \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
 # MBN
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.bullhead.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.bullhead.sh
+    $(LOCAL_PATH)/rootdir/etc/init.talkman.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.sh
 
 # Media
 PRODUCT_PACKAGES += \
@@ -329,7 +329,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-bullhead.xml:system/etc/permissions/privapp-permissions-bullhead.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-talkman.xml:system/etc/permissions/privapp-permissions-talkman.xml
 
 # Power HAL
 PRODUCT_PACKAGES += \
@@ -337,7 +337,7 @@ PRODUCT_PACKAGES += \
 
 # Power configuration file
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.bullhead.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.bullhead.power.sh
+    $(LOCAL_PATH)/rootdir/etc/init.talkman.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.power.sh
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -346,7 +346,7 @@ PRODUCT_PACKAGES += \
 
 # Qseecomd configuration file
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.bullhead.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.bullhead.qseecomd.sh
+    $(LOCAL_PATH)/rootdir/etc/init.talkman.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.qseecomd.sh
 
 # Ril
 PRODUCT_PACKAGES += \
@@ -375,8 +375,8 @@ PRODUCT_PACKAGES += \
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0 \
-    sensors.bullhead \
-    activity_recognition.bullhead \
+    sensors.talkman \
+    activity_recognition.talkman \
     android.hardware.sensors@1.0-impl \
     android.hardware.contexthub@1.0-impl.nanohub \
     android.hardware.contexthub@1.0-service \
@@ -384,7 +384,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
-    sensortool.bullhead
+    sensortool.talkman
 else
 PRODUCT_PACKAGES += \
     nanoapp_cmd
@@ -411,7 +411,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
-    thermal.bullhead 
+    thermal.talkman 
 
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
@@ -449,7 +449,7 @@ PRODUCT_PACKAGES += \
     wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf \
-    bullhead_wlan_mac
+    talkman_wlan_mac
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
@@ -459,7 +459,7 @@ PRODUCT_COPY_FILES += \
 
 # only include verity on user builds for LineageOS
 ifeq ($(TARGET_BUILD_VARIANT),user)
-   PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab-verity.bullhead:root/fstab.bullhead
+   PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab-verity.talkman:root/fstab.talkman
 
 # setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system

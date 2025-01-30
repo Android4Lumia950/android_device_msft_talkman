@@ -21,12 +21,12 @@ PRODUCT_PROPERTY_OVERRIDES = ro.sf.lcd_density=525
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES = ro.adb.secure=0
 
-$(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
+$(call inherit-product, device/lge/talkman/aosp_talkman.mk)
 
-PRODUCT_NAME := aosp_bullhead_svelte
-PRODUCT_DEVICE := bullhead
+PRODUCT_NAME := aosp_talkman_svelte
+PRODUCT_DEVICE := talkman
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP svelte on BullHead
+PRODUCT_MODEL := AOSP svelte on talkman
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RESTRICT_VENDOR_FILES := true
 

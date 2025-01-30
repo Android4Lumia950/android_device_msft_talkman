@@ -45,7 +45,7 @@ allow netmgrd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_writ
 allow netmgrd self:socket { create ioctl read write };
 allowxperm netmgrd self:socket ioctl msm_sock_ipc_ioctls;
 
-# CONFIG_MODULES not set in bullhead_defconfig
+# CONFIG_MODULES not set in talkman_defconfig
 dontaudit netmgrd self:capability sys_module;
 
 # Set net_radio properties

@@ -1,13 +1,13 @@
-type init-bullhead-qseecomd-sh, domain;
-type init-bullhead-qseecomd-sh_exec, exec_type, file_type, vendor_file_type;
+type init-talkman-qseecomd-sh, domain;
+type init-talkman-qseecomd-sh_exec, exec_type, file_type, vendor_file_type;
 
-init_daemon_domain(init-bullhead-qseecomd-sh)
+init_daemon_domain(init-talkman-qseecomd-sh)
 
-get_prop(init-bullhead-qseecomd-sh, qseecomtee_prop)
+get_prop(init-talkman-qseecomd-sh, qseecomtee_prop)
 
-allow init-bullhead-qseecomd-sh vendor_shell_exec:file rx_file_perms;
+allow init-talkman-qseecomd-sh vendor_shell_exec:file rx_file_perms;
 
 # execute toybox/toolbox
-allow init-bullhead-qseecomd-sh vendor_toolbox_exec:file rx_file_perms;
+allow init-talkman-qseecomd-sh vendor_toolbox_exec:file rx_file_perms;
 
-allow init-bullhead-qseecomd-sh vendor_file:dir r_dir_perms;
+allow init-talkman-qseecomd-sh vendor_file:dir r_dir_perms;

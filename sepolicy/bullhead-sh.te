@@ -1,23 +1,23 @@
-type bullhead-sh, domain;
-type bullhead-sh_exec, exec_type, file_type, vendor_file_type;
+type talkman-sh, domain;
+type talkman-sh_exec, exec_type, file_type, vendor_file_type;
 
 # Started by init
-init_daemon_domain(bullhead-sh)
+init_daemon_domain(talkman-sh)
 
 # Access to /data/misc/radio/*
-allow bullhead-sh radio_data_file:file create_file_perms;
-allow bullhead-sh radio_data_file:dir create_dir_perms;
+allow talkman-sh radio_data_file:file create_file_perms;
+allow talkman-sh radio_data_file:dir create_dir_perms;
 
 # Chwon /data/misc/radio/modem_config
-allow bullhead-sh self:capability chown;
+allow talkman-sh self:capability chown;
 
 # Copy /firmware/image/modem_pr/mcfg/configs/ to /data/misc/radio/*
-allow bullhead-sh firmware_file:file r_file_perms;
-allow bullhead-sh firmware_file:dir r_dir_perms;
+allow talkman-sh firmware_file:file r_file_perms;
+allow talkman-sh firmware_file:dir r_dir_perms;
 
-allow bullhead-sh shell_exec:file r_file_perms;
+allow talkman-sh shell_exec:file r_file_perms;
 
 # execute toybox/toolbox
-allow bullhead-sh toolbox_exec:file rx_file_perms;
-allow bullhead-sh radio_core_data_file:dir { read open write create add_name remove_name getattr setattr rmdir };
-allow bullhead-sh radio_core_data_file:file  { read write open create unlink getattr setattr };
+allow talkman-sh toolbox_exec:file rx_file_perms;
+allow talkman-sh radio_core_data_file:dir { read open write create add_name remove_name getattr setattr rmdir };
+allow talkman-sh radio_core_data_file:file  { read write open create unlink getattr setattr };

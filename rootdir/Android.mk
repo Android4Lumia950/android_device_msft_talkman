@@ -18,91 +18,91 @@ LOCAL_PATH := $(call my-dir)
 # Device init scripts
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := fstab.bullhead
+LOCAL_MODULE := fstab.talkman
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/fstab.bullhead
+LOCAL_SRC_FILES := etc/fstab.talkman
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.ramdump.rc
+LOCAL_MODULE := init.talkman.ramdump.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.ramdump.rc
+LOCAL_SRC_FILES := etc/init.talkman.ramdump.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.fp.rc
+LOCAL_MODULE := init.talkman.fp.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.fp.rc
+LOCAL_SRC_FILES := etc/init.talkman.fp.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.rc
+LOCAL_MODULE := init.talkman.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.rc
+LOCAL_SRC_FILES := etc/init.talkman.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.sensorhub.rc
+LOCAL_MODULE := init.talkman.sensorhub.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.sensorhub.rc
+LOCAL_SRC_FILES := etc/init.talkman.sensorhub.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.usb.rc
+LOCAL_MODULE := init.talkman.usb.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.usb.rc
+LOCAL_SRC_FILES := etc/init.talkman.usb.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.misc.rc
+LOCAL_MODULE := init.talkman.misc.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.misc.rc
+LOCAL_SRC_FILES := etc/init.talkman.misc.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.recovery.bullhead.rc
+LOCAL_MODULE := init.recovery.talkman.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.recovery.bullhead.rc
+LOCAL_SRC_FILES := etc/init.recovery.talkman.rc
 LOCAL_MODULE_PATH := $(TARGET_RECOVERY_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.diag.rc
+LOCAL_MODULE := init.talkman.diag.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.diag.rc
+LOCAL_SRC_FILES := etc/init.talkman.diag.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := init.bullhead.power.rc
+LOCAL_MODULE := init.talkman.power.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/init.bullhead.power.rc
+LOCAL_SRC_FILES := etc/init.talkman.power.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := ueventd.bullhead.rc
+LOCAL_MODULE := ueventd.talkman.rc
 LOCAL_MODULE_STEM  := ueventd.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := etc/ueventd.bullhead.rc
+LOCAL_SRC_FILES := etc/ueventd.talkman.rc
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)
 
 include $(BUILD_PREBUILT)

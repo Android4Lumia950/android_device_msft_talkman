@@ -23,5 +23,5 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_SRC_FILES := thermal.c
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := thermal.bullhead
+LOCAL_MODULE := thermal.talkman
 include $(BUILD_SHARED_LIBRARY)

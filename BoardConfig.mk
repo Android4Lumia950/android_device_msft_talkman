@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/lge/bullhead
+DEVICE_PATH := device/msft/talkman
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
@@ -40,8 +40,7 @@ TARGET_USES_AOSP := true
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8992
-TARGET_BOOTLOADER_BOARD_NAME := bullhead
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := talkman,bullhead,angler
 
 WITH_DEXPREOPT := true
 DONT_DEXPREOPT_PREBUILTS := true
@@ -53,15 +52,15 @@ BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bullhead boot_cpus=0-5
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=talkman boot_cpus=0-5
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 msm_poweroff.download_mode=0
 BOARD_KERNEL_CMDLINE += loop.max_part=7 androidboot.boot_devices=soc.0/f9824900.sdhci
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 #KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/arm64-gcc/bin
 #KERNEL_TOOLCHAIN_PREFIX := aarch64-elf-
-TARGET_KERNEL_SOURCE := kernel/lge/bullhead
-TARGET_KERNEL_CONFIG := lineageos_bullhead_defconfig
+TARGET_KERNEL_SOURCE := kernel/msft/talkman
+TARGET_KERNEL_CONFIG := lineageos_talkman_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_ARCH := arm64
@@ -176,7 +175,7 @@ TARGET_USES_NON_LEGACY_POWERHAL := true
 # Recovery
 TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
 BOARD_SUPPRESS_SECURE_ERASE := true
-TARGET_RECOVERY_FSTAB = $(DEVICE_PATH)/rootdir/etc/fstab.bullhead
+TARGET_RECOVERY_FSTAB = $(DEVICE_PATH)/rootdir/etc/fstab.talkman
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
@@ -224,13 +223,13 @@ WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 
-ifeq ($(TARGET_PRODUCT),aosp_bullhead_svelte)
+ifeq ($(TARGET_PRODUCT),aosp_talkman_svelte)
 BOARD_KERNEL_CMDLINE += mem=1024M maxcpus=2
 MALLOC_SVELTE := true
 endif
-ifeq ($(TARGET_PRODUCT),bullhead_svelte)
+ifeq ($(TARGET_PRODUCT),talkman_svelte)
 BOARD_KERNEL_CMDLINE += mem=1024M
 MALLOC_SVELTE := true
 endif
 
--include vendor/lge/bullhead/BoardConfigVendor.mk
+-include vendor/msft/talkman/BoardConfigVendor.mk
