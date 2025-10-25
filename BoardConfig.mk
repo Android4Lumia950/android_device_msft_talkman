@@ -15,7 +15,6 @@
 #
 
 DEVICE_PATH := device/msft/talkman
-
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
@@ -67,13 +66,16 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Kernel - prebuilt
-#TARGET_FORCE_PREBUILT_KERNEL := true
-#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-#endif
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+endif
 
 # APEX
 TARGET_FLATTEN_APEX := true
+
+#Jemalloc
+MALLOC_SVELTE := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
