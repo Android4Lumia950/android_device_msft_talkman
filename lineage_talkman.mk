@@ -36,7 +36,8 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2018-11-01
+    ro.lineage.build.vendor_security_patch=2018-11-01 \
+    lineage.updater.uri=https://raw.githubusercontent.com/Android4Lumia950/julian-ota/main/talkman.json
 
 #PRODUCT_COPY_FILES += device/msft/talkman/fstab.aosp_talkman:root/fstab.talkman
 
