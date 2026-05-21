@@ -93,6 +93,7 @@ PRODUCT_PACKAGES += \
     
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.radio.config@1.0-service \
     android.hardware.audio@2.0-impl \
     android.hardware.audio.service \
     android.hardware.audio@6.0 \
