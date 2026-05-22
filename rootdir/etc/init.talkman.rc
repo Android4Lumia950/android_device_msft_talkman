@@ -26,6 +26,10 @@ on early-init
     # Allow to access debugfs for system:system
     chmod 0755 /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
+    
+    # Flashlight sysfs permission fix
+on boot
+    chmod 0666 /sys/class/leds/led::flash_torch/brightness
 
 on charger
     # low power governing
