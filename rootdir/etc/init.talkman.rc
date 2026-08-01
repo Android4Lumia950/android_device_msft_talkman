@@ -26,7 +26,15 @@ on early-init
     # Allow to access debugfs for system:system
     chmod 0755 /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
-    
+# loudspeaker at boot 7db battery workaround
+on boot
+
+	while [ ! -e /dev/i2c-2 ]; do sleep 2; done
+	sleep 20
+	for i in 1 2 3 4 5; do
+  	i2cset -y -f 2 0x40 0x12 0x0e b && break
+  	sleep 5
+	done    
     # Flashlight sysfs permission fix
 on boot
     chmod 0666 /sys/class/leds/led::flash_torch/brightness
