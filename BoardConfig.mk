@@ -60,7 +60,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $
 #KERNEL_TOOLCHAIN_PREFIX := aarch64-elf-
 # Audio / NFC / sensor I2C live in android_kernel_mmo_msm8994
 # (lineage-18.1-talkman, mmo_defconfig). Talkman DT only.
-TARGET_KERNEL_SOURCE := kernel/mmo/msm8994
+TARGET_KERNEL_SOURCE := kernel/msft/talkman
 TARGET_KERNEL_CONFIG := mmo_defconfig
 TARGET_KERNEL_CLANG_COMPILE := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
