@@ -20,6 +20,20 @@ on boot
     chown root system /sns/cal
     chmod 0755 /sns/cal
 
+    # AP-side IMU / mag / baro / ALS. Passthrough HAL runs in system_server.
+    chmod 0660 /dev/i2c-4
+    chown system system /dev/i2c-4
+    chmod 0660 /dev/i2c-7
+    chown system system /dev/i2c-7
+
+    # Hall: TLMM 42 front/lid, 75 back cover.
+    write /sys/class/gpio/export 42
+    write /sys/class/gpio/export 75
+    write /sys/class/gpio/gpio42/direction in
+    write /sys/class/gpio/gpio75/direction in
+    chmod 0644 /sys/class/gpio/gpio42/value
+    chmod 0644 /sys/class/gpio/gpio75/value
+
 on post-fs-data
     # Create directory used by sensor subsystem
     mkdir /persist/sensors 0775 system root

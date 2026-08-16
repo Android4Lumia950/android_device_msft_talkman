@@ -10,7 +10,8 @@ allow system_server per_mgr_service:service_manager find;
 allow system_server sysfs_msm_subsys:dir r_dir_perms;
 allow system_server sysfs_msm_subsys:lnk_file r_file_perms;
 
-# Needed by hubconnection for sensor hub
+# Needed by hubconnection for sensor hub.
+# /dev/i2c-4 and /dev/i2c-7 are also sensors_device (talkman AP HAL).
 allow system_server sensors_device:chr_file rw_file_perms;
 allow system_server uhid_device:chr_file rw_file_perms;
 allow system_server persist_file:dir search;

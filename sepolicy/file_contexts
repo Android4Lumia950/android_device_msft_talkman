@@ -87,6 +87,8 @@
 /dev/spich                             u:object_r:sensors_device:s0
 /dev/nanohub                           u:object_r:sensors_device:s0
 /dev/nanohub_comms                     u:object_r:sensors_device:s0
+/dev/i2c-4                             u:object_r:sensors_device:s0
+/dev/i2c-7                             u:object_r:sensors_device:s0
 
 # MSM camera related
 /dev/media[0-9]+                       u:object_r:camera_device:s0
