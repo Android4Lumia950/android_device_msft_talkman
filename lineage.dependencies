@@ -1,7 +1,8 @@
 [
   {
-    "repository"  : "Android4Lumia950/android_kernel_msft_talkman",
-    "target_path" : "kernel/msft/talkman",
+    "repository"  : "Android4Lumia950/android_kernel_mmo_msm8994",
+    "target_path" : "kernel/mmo/msm8994",
+    "branch"      : "lineage-18.1-talkman",
     "remote"      : "github"
   },
   {

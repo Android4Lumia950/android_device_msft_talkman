@@ -58,11 +58,11 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 #KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/arm64-gcc/bin
 #KERNEL_TOOLCHAIN_PREFIX := aarch64-elf-
-# ROM builds still use kernel/msft/talkman. The kernel that is actually
-# flashed (audio, NFC, sensor I2C) is android_kernel_mmo_msm8994
-# branch lineage-18.1-talkman, defconfig mmo_defconfig.
-TARGET_KERNEL_SOURCE := kernel/msft/talkman
-TARGET_KERNEL_CONFIG := lineageos_talkman_defconfig
+# Audio / NFC / sensor I2C live in android_kernel_mmo_msm8994
+# (lineage-18.1-talkman, mmo_defconfig). Talkman DT only.
+TARGET_KERNEL_SOURCE := kernel/mmo/msm8994
+TARGET_KERNEL_CONFIG := mmo_defconfig
+TARGET_KERNEL_CLANG_COMPILE := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_ARCH := arm64
