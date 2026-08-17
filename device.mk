@@ -91,9 +91,17 @@ PRODUCT_PACKAGES += \
      libqcomfm_jni \
      qcom.fmradio
 
+# Stock qcril does not bind the GW USIM on this WP EFS
+# (automatic_selection=0, halt_subscription=1) and does not send
+# QMI_UIM_SUBSCRIPTION_OK. The tree used to list qmihal, which this
+# image never shipped. These original QCCI helpers do that QMI.
+# SIM identity reaches LOADED; WWAN camp is still not met.
+# See ril/README.md.
 PRODUCT_PACKAGES += \
-    qmihal
-    
+    uim-tool \
+    dms-tool \
+    nas-tool
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
@@ -244,7 +252,8 @@ PRODUCT_PACKAGES += \
     init.recovery.talkman.rc \
     init.talkman.ramdump.rc \
     init.talkman.diag.rc \
-    init.talkman.misc.rc
+    init.talkman.misc.rc \
+    init.talkman.ril.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.devwait.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devwait.sh \
@@ -274,7 +283,8 @@ PRODUCT_PACKAGES += \
     
 # MBN
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.talkman.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.sh
+    $(LOCAL_PATH)/rootdir/etc/init.talkman.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.sh \
+    $(LOCAL_PATH)/ril/talkman-ril.sh:$(TARGET_COPY_OUT_VENDOR)/bin/talkman-ril.sh
 
 # Media
 PRODUCT_PACKAGES += \

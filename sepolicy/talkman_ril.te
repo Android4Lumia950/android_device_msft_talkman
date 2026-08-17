@@ -1,0 +1,24 @@
+# Late-start USIM provision helper (talkman-ril.sh + dms/uim/nas-tool).
+type talkman_ril, domain;
+type talkman_ril_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(talkman_ril)
+
+allow talkman_ril vendor_shell_exec:file rx_file_perms;
+allow talkman_ril vendor_toolbox_exec:file rx_file_perms;
+allow talkman_ril vendor_file:dir r_dir_perms;
+allow talkman_ril vendor_file:file { read open getattr execute map };
+allow talkman_ril talkman_ril_exec:file { r_file_perms execute execute_no_trans };
+
+# QCCI via qmuxd / IPC router (same class as rild).
+qmux_socket(talkman_ril)
+allow talkman_ril self:socket { create ioctl read write bind getopt setopt };
+allowxperm talkman_ril self:socket ioctl msm_sock_ipc_ioctls;
+
+# wait for /dev/subsys_modem
+allow talkman_ril ssr_device:chr_file getattr;
+
+get_prop(talkman_ril, radio_prop)
+
+# log -t talkman-ril
+unix_socket_send(talkman_ril, logdw, logd)
