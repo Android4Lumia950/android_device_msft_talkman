@@ -321,7 +321,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
-# Power configuration file
+# Power configuration file (kernel sysfs policy; see power/README.md)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.talkman.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.talkman.power.sh
 
@@ -368,7 +368,15 @@ PRODUCT_PACKAGES += \
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
-    thermal.talkman 
+    thermal.talkman
+
+# CAF thermal-engine DT_NEEDs libqti-perfd-client.so. The LGE vendor.img
+# does not ship it. This open-source stub lets thermal-engine start; the
+# 8992 conf still applies policy through ioctl/sysfs. Optional msm8992
+# perfd blobs (bullhead) are documented in power/README.md — do not commit
+# those binaries here.
+PRODUCT_PACKAGES += \
+    libqti-perfd-client
 
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
