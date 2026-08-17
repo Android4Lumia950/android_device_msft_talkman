@@ -32,6 +32,9 @@
 /system/bin/msm_irqbalance
 /system/bin/netmgrd
 /system/bin/nl_listener
+# perfd is listed here but the talkman LGE vendor.img does not actually
+# ship it or libqti-perfd-client.so. Copy msm8992 blobs from bullhead;
+# see power/README.md. Do not use msm8996/Pie perfd.
 /system/bin/perfd
 /system/bin/pktlogconf
 /system/bin/PktRspTest
@@ -86,6 +89,9 @@ system/etc/acdbdata/Speaker_cal.acdb
 /system/etc/qcril.db
 /system/etc/qmi_fw.conf
 /system/etc/sap.conf
+# Missing from talkman LGE vendor.img: vendor/lib64/libqti-perfd-client.so
+# (and vendor/lib/). Until those bullhead msm8992 blobs are copied into
+# the vendor image, device.mk builds an open-source stub. See power/README.md.
 /system/etc/thermal-engine-8992.conf
 /system/framework/cneapiclient.jar
 /system/framework/embmslibrary.jar
