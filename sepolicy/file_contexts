@@ -118,6 +118,10 @@
 /vendor/bin/cnd                    u:object_r:cnd_exec:s0
 /vendor/bin/init\.talkman\.power\.sh           u:object_r:init-power-sh_exec:s0
 /vendor/bin/init\.talkman\.sh                  u:object_r:talkman-sh_exec:s0
+/vendor/bin/talkman-ril\.sh                    u:object_r:talkman_ril_exec:s0
+/vendor/bin/uim-tool                           u:object_r:talkman_ril_exec:s0
+/vendor/bin/dms-tool                           u:object_r:talkman_ril_exec:s0
+/vendor/bin/nas-tool                           u:object_r:talkman_ril_exec:s0
 /(vendor|system/vendor)/bin/init\.msm8992\.sensor\.sh    u:object_r:talkman-sh_exec:s0
 /vendor/bin/init\.talkman\.qseecomd\.sh        u:object_r:init-talkman-qseecomd-sh_exec:s0
 /vendor/bin/init\.qcom\.devstart\.sh            u:object_r:init-qcom-devstart-sh_exec:s0

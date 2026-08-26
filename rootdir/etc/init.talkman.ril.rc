@@ -1,0 +1,13 @@
+# Talkman USIM bind after boot. Stock qcril does not send QMI_UIM
+# CHANGE_PROVISIONING / SUBSCRIPTION_OK against this WP EFS.
+# Identity/SIM only — WWAN camp is still not met.
+
+service talkman-ril /vendor/bin/talkman-ril.sh
+    class late_start
+    user radio
+    group radio
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start talkman-ril
